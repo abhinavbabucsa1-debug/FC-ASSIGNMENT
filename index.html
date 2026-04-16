@@ -1,241 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Christmas Festival</title>
-
-<style>
-
-/* ===== BASE ===== */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family: Arial, sans-serif;
-background: linear-gradient(135deg, #0f172a, #020617);
-color:#f1f5f9;
-}
-
-/* ===== CONTAINER ===== */
-.container{
-max-width:1100px;
-margin:auto;
-padding:20px;
-}
-
-/* ===== NAVBAR ===== */
-header{
-background: rgba(255,255,255,0.05);
-backdrop-filter: blur(10px);
-border-bottom:1px solid rgba(255,255,255,0.1);
-}
-
-.nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.nav h1{
-color:#ef4444;
-}
-
-.nav a{
-color:#cbd5f5;
-text-decoration:none;
-margin-left:15px;
-transition:0.3s;
-}
-
-.nav a:hover{
-color:#22c55e;
-}
-
-/* ===== HERO ===== */
-.hero{
-height:80vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-background: url('https://images.unsplash.com/photo-1543589077-47d81606c1bf') center/cover;
-border-radius:12px;
-margin-top:30px;
-position:relative;
-}
-
-.hero::after{
-content:"";
-position:absolute;
-inset:0;
-background: rgba(0,0,0,0.6);
-border-radius:12px;
-}
-
-.hero-content{
-position:relative;
-z-index:2;
-}
-
-.hero h2{
-font-size:42px;
-margin-bottom:10px;
-}
-
-.hero p{
-color:#e2e8f0;
-margin-bottom:20px;
-}
-
-.btn{
-background:#ef4444;
-border:none;
-padding:12px 20px;
-border-radius:6px;
-color:white;
-cursor:pointer;
-transition:0.3s;
-}
-
-.btn:hover{
-background:#dc2626;
-}
-
-/* ===== SECTION ===== */
-.section{
-margin-top:60px;
-}
-
-.section h2{
-text-align:center;
-margin-bottom:30px;
-}
-
-/* ===== GRID ===== */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-/* ===== CARD ===== */
-.card{
-background: rgba(255,255,255,0.05);
-backdrop-filter: blur(10px);
-border-radius:12px;
-overflow:hidden;
-transition:0.3s;
-}
-
-.card:hover{
-transform: translateY(-5px);
-}
-
-.card img{
-width:100%;
-height:180px;
-object-fit:cover;
-}
-
-.card-content{
-padding:15px;
-}
-
-.card-content h3{
-color:#22c55e;
-margin-bottom:8px;
-}
-
-/* ===== FOOTER ===== */
-footer{
-text-align:center;
-margin-top:60px;
-padding:20px;
-border-top:1px solid rgba(255,255,255,0.1);
-color:#94a3b8;
-}
-
-/* ===== RESPONSIVE ===== */
-@media(max-width:768px){
-.hero{
-height:60vh;
-}
-
-.hero h2{
-font-size:30px;
-}
-}
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas | The Designer Edition</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header>
-<div class="container nav">
-<h1>🎄 Christmas</h1>
-<div>
-<a href="#">Home</a>
-<a href="#">Traditions</a>
-<a href="#">Celebrations</a>
-</div>
-</div>
-</header>
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="logo">Noël.</div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Traditions</a>
+                <a href="#">Celebrations</a>
+            </div>
+        </div>
+    </nav>
 
-<!-- HERO -->
-<section class="container hero">
-<div class="hero-content">
-<h2>Merry Christmas 🎅</h2>
-<p>Celebrate love, joy, and togetherness during the most magical time of the year.</p>
-<button class="btn">Explore More</button>
-</div>
-</section>
+    <main class="page-container">
+        
+        <section class="editorial-hero">
+            <div class="hero-text">
+                <h1 class="display-title glowing-text">Winter<br><i>Magic.</i></h1>
+                <p class="hero-subtitle">Celebrate love, joy, and togetherness during the most beautiful and atmospheric time of the year.</p>
+                <button class="primary-btn premium-btn">Explore the Season</button>
+            </div>
+            <div class="hero-visual ambient-glow">
+                <img src="https://images.unsplash.com/photo-1543589077-47d81606c1bf" alt="Frosted Christmas Ornament">
+            </div>
+        </section>
 
-<!-- TRADITIONS -->
-<section class="container section">
-<h2>Traditions</h2>
+        <section class="section">
+            <div class="section-header">
+                <h2>Timeless <i>Traditions</i></h2>
+                <div class="accent-line"></div>
+            </div>
 
-<div class="grid">
+            <div class="bento-grid">
+                <div class="glass-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/old-fashioned-christmas-tree-1672336742.jpg" alt="Vintage Christmas Tree">
+                    </div>
+                    <div class="card-content">
+                        <h3>The Evergreen</h3>
+                        <p>Decorating the fir tree stands as a universal symbol of enduring life, joy, and celebration through the winter solstice.</p>
+                    </div>
+                </div>
 
-<div class="card">
-<img src="https://hips.hearstapps.com/hmg-prod/images/old-fashioned-christmas-tree-1672336742.jpg?crop=1.00xw:0.667xh;0,0.208xh&resize=1120:*">
-<div class="card-content">
-<h3>Christmas Tree</h3>
-<p>Decorating the tree symbolizes joy and celebration.</p>
-</div>
-</div>
+                <div class="glass-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://hips.hearstapps.com/hmg-prod/images/christmas-gift-box-food-decor-and-fir-tree-branch-royalty-free-image-1694638050.jpg" alt="Wrapped Gifts">
+                    </div>
+                    <div class="card-content">
+                        <h3>Art of Giving</h3>
+                        <p>Exchanging thoughtfully wrapped gifts fosters connection, spreading warmth and happiness to those we hold close.</p>
+                    </div>
+                </div>
 
-<div class="card">
-<img src="https://hips.hearstapps.com/hmg-prod/images/christmas-gift-box-food-decor-and-fir-tree-branch-royalty-free-image-1694638050.jpg?crop=1.00xw:0.752xh;0,0.185xh&resize=1800:*">
-<div class="card-content">
-<h3>Gifts</h3>
-<p>Exchanging gifts spreads happiness and love.</p>
-</div>
-</div>
+                <div class="glass-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.hindustantimes.com/img/2022/12/24/550x309/2b23283147584a6e7c4a890e2f87682a_1671862274495_1671862353466_1671862353466.jpg" alt="Midnight Mass">
+                    </div>
+                    <div class="card-content">
+                        <h3>Midnight Mass</h3>
+                        <p>A quiet, reflective gathering lit by candlelight, honoring the historical and spiritual roots of the holy night.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<div class="card">
-<img src="https://images.hindustantimes.com/img/2022/12/24/550x309/2b23283147584a6e7c4a890e2f87682a_1671862274495_1671862353466_1671862353466.jpg">
-<div class="card-content">
-<h3>Church Visits</h3>
-<p>People attend midnight mass to celebrate the birth of Jesus.</p>
-</div>
-</div>
+        <section class="section">
+            <div class="section-header">
+                <h2>Modern <i>Celebrations</i></h2>
+                <div class="accent-line"></div>
+            </div>
 
-</div>
-</section>
+            <div class="bento-grid dual-grid">
+                <div class="glass-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947" alt="Christmas Feast">
+                    </div>
+                    <div class="card-content">
+                        <h3>The Grand Feast</h3>
+                        <p>Families gather around beautifully curated tables to share rich, traditional meals, making memories over roasted chestnuts and mulled wine.</p>
+                    </div>
+                </div>
 
-<!-- CELEBRATIONS -->
-<section class="container section">
-<h2>Celebrations</h2>
+                <div class="glass-card">
+                    <div class="card-img-wrapper">
+                        <img src="https://images.unsplash.com/photo-1512389142860-9c449e58a543?q=80&w=2069&auto=format&fit=crop" alt="Cozy Lights">
+                    </div>
+                    <div class="card-content">
+                        <h3>Illuminations</h3>
+                        <p>Cities and homes alike are draped in warm, glowing lights, pushing back the dark winter nights with a brilliant, festive atmosphere.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<div class="grid">
+    </main>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1544025162-d76694265947">
-<div class="card-content">
-<h3>Christmas Feast</h3>
-<p>Families
+    <footer class="designer-footer">
+        <p>Curated for the Holiday Season</p>
+    </footer>
+
+</body>
+</html>
