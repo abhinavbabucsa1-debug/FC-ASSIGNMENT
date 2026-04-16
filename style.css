@@ -1,15 +1,14 @@
 /* =========================================
-   LUXURY HOLIDAY DESIGN SYSTEM
+   SINGLE-SCREEN BENTO DESIGN SYSTEM
    ========================================= */
 :root {
-    --bg-color: #020617; /* Deepest Midnight Blue */
-    --text-primary: #f8fafc;
-    --text-secondary: #94a3b8;
-    --accent-crimson: #e11d48;
-    --accent-emerald: #10b981;
+    --text-primary: #ffffff;
+    --text-secondary: #cbd5e1;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.15);
     
-    --font-ui: 'Inter', sans-serif;
-    --font-display: 'Cormorant Garamond', serif;
+    --font-ui: 'Manrope', sans-serif;
+    --font-display: 'Playfair Display', serif;
 }
 
 * {
@@ -18,56 +17,45 @@
     box-sizing: border-box;
 }
 
+/* Locks the screen so no scrolling is needed */
 body {
-    background-color: var(--bg-color);
+    background-color: #020617;
     color: var(--text-primary);
     font-family: var(--font-ui);
-    overflow-x: hidden;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     -webkit-font-smoothing: antialiased;
-    /* Subtle radial gradient background */
-    background-image: radial-gradient(circle at 15% 50%, rgba(225, 29, 72, 0.05), transparent 25%),
-                      radial-gradient(circle at 85% 30%, rgba(16, 185, 129, 0.05), transparent 25%);
 }
 
-.page-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 4vw;
-}
-
-/* ---- Frosted Glass Navigation ---- */
-.glass-nav {
+/* Cinematic Background Image */
+.bg-image {
     position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-    background: rgba(2, 6, 23, 0.6);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    animation: fadeDown 1s ease-out forwards;
+    inset: 0;
+    background: url('https://images.unsplash.com/photo-1543589077-47d81606c1bf') center/cover;
+    z-index: -2;
+    filter: brightness(0.4) saturate(1.2); /* Darkens the image so text pops */
 }
 
-.nav-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 1.5rem 4vw;
+/* ---- Simple Glass Navigation ---- */
+.glass-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 2rem 5vw;
+    z-index: 10;
 }
 
 .logo {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 600;
-    color: var(--accent-crimson);
-    letter-spacing: 1px;
 }
 
 .nav-links {
     display: flex;
-    gap: 3rem;
+    gap: 2.5rem;
 }
 
 .nav-links a {
@@ -83,240 +71,185 @@ body {
     color: var(--text-primary);
 }
 
-/* ---- Editorial Hero ---- */
-.editorial-hero {
-    min-height: 100vh;
+/* ---- Master Bento Container ---- */
+.bento-container {
+    flex: 1;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.2fr;
     gap: 4rem;
+    padding: 0 5vw 4rem 5vw;
     align-items: center;
-    padding-top: 5rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    width: 100%;
 }
 
-.hero-text {
-    animation: fadeUp 1.2s ease-out forwards;
+/* Left: Hero Text */
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .display-title {
     font-family: var(--font-display);
-    font-size: clamp(4rem, 8vw, 8.5rem);
-    line-height: 0.95;
-    font-weight: 600;
-    margin-bottom: 2rem;
-    color: var(--text-primary);
+    font-size: clamp(3.5rem, 6vw, 6.5rem);
+    line-height: 1.05;
+    margin-bottom: 1.5rem;
 }
 
 .display-title i {
     font-style: italic;
-    color: var(--accent-crimson);
+    color: #e2e8f0;
 }
 
-.hero-subtitle {
+.hero-desc {
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-secondary);
     max-width: 450px;
-    margin-bottom: 3rem;
 }
 
-.primary-btn {
-    background: var(--text-primary);
-    color: var(--bg-color);
-    border: none;
-    padding: 1.2rem 3rem;
-    font-family: var(--font-ui);
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    cursor: pointer;
-    border-radius: 2px;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.hero-visual {
-    position: relative;
-    border-radius: 12px;
-    overflow: hidden;
-    height: 70vh;
-    animation: fadeUp 1.5s ease-out forwards;
-}
-
-.hero-visual img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(0.8) contrast(1.1);
-    transition: transform 2s ease;
-}
-
-.hero-visual:hover img {
-    transform: scale(1.05);
-}
-
-/* ---- Sections & Typography ---- */
-.section {
-    padding: 8rem 0;
-}
-
-.section-header {
-    margin-bottom: 4rem;
-    text-align: center;
-}
-
-.section-header h2 {
-    font-family: var(--font-display);
-    font-size: 3.5rem;
-    font-weight: 400;
-}
-
-.section-header i {
-    color: var(--accent-emerald);
-    font-style: italic;
-}
-
-.accent-line {
-    width: 60px;
-    height: 1px;
-    background: var(--text-secondary);
-    margin: 1.5rem auto 0;
-    opacity: 0.3;
-}
-
-/* ---- Glassmorphism Bento Grid ---- */
+/* Right: Glassmorphism Grid */
 .bento-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
-}
-
-.dual-grid {
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    height: 70vh; /* Keeps it contained for the screenshot */
 }
 
 .glass-card {
-    background: rgba(255, 255, 255, 0.02);
+    position: relative;
+    background: var(--glass-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
     overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     display: flex;
     flex-direction: column;
+    justify-content: flex-end;
+    transition: transform 0.4s ease, border-color 0.4s ease;
 }
 
 .glass-card:hover {
-    transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4),
-                0 0 40px rgba(225, 29, 72, 0.05); /* Soft crimson ambient glow */
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
-.card-img-wrapper {
-    height: 240px;
-    overflow: hidden;
+.horizontal-card {
+    grid-column: span 2; /* Makes the bottom card stretch full width */
 }
 
 .glass-card img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s ease;
+    z-index: 1;
+    filter: brightness(0.6);
+    transition: transform 1s ease, filter 1s ease;
 }
 
 .glass-card:hover img {
     transform: scale(1.05);
+    filter: brightness(0.8);
 }
 
-.card-content {
-    padding: 2.5rem;
-    flex-grow: 1;
+.card-overlay {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
 }
 
-.card-content h3 {
+.card-overlay h3 {
     font-family: var(--font-display);
-    font-size: 2rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
 }
 
-.card-content p {
-    font-size: 0.95rem;
-    line-height: 1.7;
+.card-overlay p {
+    font-size: 0.85rem;
     color: var(--text-secondary);
-}
-
-/* ---- Footer ---- */
-.designer-footer {
-    text-align: center;
-    padding: 4rem 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-    color: var(--text-secondary);
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    line-height: 1.5;
 }
 
 /* =========================================
-   GLOWS & ANIMATIONS
+   PURE CSS ATMOSPHERIC SNOW
    ========================================= */
-.glowing-text {
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+.snow, .snow-layer-2 {
+    position: absolute;
+    top: -100vh;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
 }
 
-.ambient-glow {
-    box-shadow: 0 0 60px rgba(225, 29, 72, 0.15); 
+.snow {
+    box-shadow: 
+        10vw 10vh #fff, 30vw 20vh #fff, 50vw 30vh #fff, 70vw 40vh #fff, 90vw 50vh #fff,
+        20vw 60vh #fff, 40vw 70vh #fff, 60vw 80vh #fff, 80vw 90vh #fff, 15vw 95vh #fff,
+        85vw 15vh #fff, 45vw 25vh #fff, 65vw 35vh #fff, 25vw 45vh #fff, 75vw 55vh #fff,
+        35vw 65vh #fff, 55vw 75vh #fff, 95vw 85vh #fff, 5vw 100vh #fff, 50vw 5vh #fff;
+    animation: fall 20s linear infinite;
+    opacity: 0.4;
 }
 
-.premium-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+.snow-layer-2 {
+    width: 4px;
+    height: 4px;
+    box-shadow: 
+        5vw 15vh #fff, 25vw 25vh #fff, 45vw 35vh #fff, 65vw 45vh #fff, 85vw 55vh #fff,
+        15vw 65vh #fff, 35vw 75vh #fff, 55vw 85vh #fff, 75vw 95vh #fff, 95vw 5vh #fff;
+    animation: fall 15s linear infinite;
+    opacity: 0.6;
+    filter: blur(1px);
 }
 
-@keyframes fadeUp {
-    from { opacity: 0; transform: translateY(40px); }
+@keyframes fall {
+    100% { transform: translateY(200vh); }
+}
+
+/* ---- Initial Load Animations ---- */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUpAnim 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeUpAnim {
     to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* =========================================
-   RESPONSIVE DESIGN
-   ========================================= */
+/* ---- Responsive Constraints ---- */
 @media (max-width: 1024px) {
-    .editorial-hero {
+    body {
+        overflow-y: auto; /* Allows scrolling on smaller screens */
+        height: auto;
+    }
+    .bento-container {
         grid-template-columns: 1fr;
-        text-align: center;
         gap: 3rem;
-        padding-top: 8rem;
+        padding-top: 2rem;
     }
-
-    .hero-subtitle {
-        margin: 0 auto 3rem;
-    }
-
-    .hero-visual {
-        height: 50vh;
+    .bento-grid {
+        height: 600px;
     }
 }
 
 @media (max-width: 768px) {
-    .nav-links {
-        display: none; /* Keeps mobile minimal, you can add a hamburger menu later if needed */
-    }
-
-    .display-title {
-        font-size: 3.5rem;
-    }
-
-    .dual-grid {
+    .nav-links { display: none; }
+    .bento-grid {
         grid-template-columns: 1fr;
+        height: auto;
     }
+    .horizontal-card {
+        grid-column: span 1;
+    }
+    .glass-card { height: 250px; }
 }
